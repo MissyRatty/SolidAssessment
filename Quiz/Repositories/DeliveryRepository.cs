@@ -1,6 +1,7 @@
-﻿using Quiz.Services;
+﻿using Quiz.Models;
+using Quiz.Services;
 
-namespace Quiz
+namespace Quiz.Repositories
 {
     public class DeliveryRepository
     {
@@ -13,27 +14,23 @@ namespace Quiz
 
         public void Add(DeliveryDetails deliveryDetails)
         {
-            if(deliveryDetails == null)
+            if (deliveryDetails == null)
             {
                 return;
             }
 
             _deliveries.Add(deliveryDetails.Id, deliveryDetails);
 
-            //send email to customer about delivery
-            var emailToSend = new Email() {};
-            //some logic here to send Email
+            SendNotification sendNotification = new SendNotification();
         }
 
-        public DeliveryDetails Get(int deliveryId)
+        public DeliveryDetails? Get(int deliveryId)
         {
             _deliveries.TryGetValue(deliveryId, out var deliveryDetails);
 
-            if(deliveryDetails != null)
+            if (deliveryDetails != null)
             {
-                //send email to customer about delivery
-                var emailToSend = new Email() { };
-                //some logic here to send Email
+                SendNotification sendNotification = new SendNotification();
             }
 
             return deliveryDetails;
@@ -48,18 +45,15 @@ namespace Quiz
 
             _deliveries[deliveryDetails.Id] = deliveryDetails;
 
-            //send email to customer about delivery
-            var emailToSend = new Email() { };
-            //some logic here to send Email
+            SendNotification sendNotification = new SendNotification();
         }
 
         public void Delete(int deliveryId)
         {
             _deliveries.Remove(deliveryId);
 
-            //send email to customer about delivery
-            var emailToSend = new Email() { };
-            //some logic here to send Email
+            SendNotification sendNotification = new SendNotification();
         }
+
     }
 }
