@@ -1,31 +1,29 @@
-string taskToDo = "Open-Closed Principle Scenario:";
+using Quiz;
 
-string extraText = "Your company currently deals with the sales of Oranges but you are wanting to expand your solution to cater for Apples & Bananas.";
+Console.ForegroundColor = ConsoleColor.Green;
+IEmployee softwareEngineer = new SoftwareEngineer();
+Console.WriteLine($"As a SoftwareEngineer, I get an annual salary of ${softwareEngineer.GetSalary()} and I report to {softwareEngineer.ReportsTo()}");
 
-string extraText2 = "You have been Tasked to extend the current functionality to support the company's vision stated above";
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine("                                                                                         ");
 
-string extraText3 = "Let's see what you can come up with  :) ";
+IEmployee manager = new Manager();
+Console.WriteLine($"As a manager, I get an annual salary of ${manager.GetSalary()} and I report to {manager.ReportsTo()}");
 
-Console.ForegroundColor = ConsoleColor.Red;
-Console.WriteLine(taskToDo);
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine("                                                                                         ");
+
+//what happens when you try to run these commented lines for the CEO ?
+IBaseEmployee CEO = new CEO();
+Console.WriteLine($"As a CEO, I get an annual salary of ${CEO.GetSalary()}");
 
 Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine("                                                                                         ");
 
 Console.ForegroundColor = ConsoleColor.Red;
-Console.WriteLine(extraText);
-
-Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine("                                                                                         ");
 
-Console.ForegroundColor = ConsoleColor.Red;
-Console.WriteLine(extraText2);
-
-Console.ForegroundColor = ConsoleColor.Green;
-Console.WriteLine("                                                                                          ");
-
-Console.ForegroundColor = ConsoleColor.Red;
-Console.WriteLine(extraText3);
+Console.WriteLine("Do you think the current implementation of IEmployee breaks ISP ? If YES, could you fix it ?");
 
 Console.ForegroundColor = ConsoleColor.Black;
-Console.WriteLine("                                                                                          ");
+Console.WriteLine("                                                                                         ");
